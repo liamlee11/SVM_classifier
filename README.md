@@ -85,15 +85,15 @@
 
 Parameter W 를 visualization 하기 위해,
 
-1) W 를 visualization의 의미
+- W 를 visualization의 의미
 
- SVM classifier 에서 W 와 X 의 내적의 의미는 X 들을 고차원 feature space 로 보냈을 때 decision boundary 인 hyperplane 의 support vector 와 X 의 거리(정확하게는 W의 크기로 나누어진다면)를 의미한다. 즉, SVM 에서 optimization 은 hyperplane 의 normal vector 방향으로의 X 의 margin 을 최대화시키는 과정이다. 따라서 W 의 하나의 class 에 해당하는 vector 는 해당 클래스의 이미지들의 score 를 높이는 방향으로 업데이트된 normal vector 이고 이 vector 를 reshape 하여 visualization 을 하는 것이다.
+  SVM classifier 에서 W 와 X 의 내적의 의미는 X 들을 고차원 feature space 로 보냈을 때 decision boundary 인 hyperplane 의 support vector 와 X 의 거리(정확하게는 W의 크기로 나누어진다면)를 의미한다. 즉, SVM 에서 optimization 은 hyperplane 의 normal vector 방향으로의 X 의 margin 을 최대화시키는 과정이다. 따라서 W 의 하나의 class 에 해당하는 vector 는 해당 클래스의 이미지들의 score 를 높이는 방향으로 업데이트된 normal vector 이고 이 vector 를 reshape 하여 visualization 을 하는 것이다.
  
-2) Negative value 에 대한 처리
+- Negative value 에 대한 처리
 
- W 의 element 에는 negative value 도 있는데 이 프로젝트에서는 W 의 element 중 최소값을 0으로, 최대값을 1로 한 후 255를 곱하여 linear 하게 확장시키는 방법을 선택하였다. 물론 vector 를 이루는 모든 단위벡터들이 서로 linear 하지 않을 것이기 때문에 한계점이 존재하므로 이 부분에 대해서는 추가적인 개선이 필요할 것이다.
+  W 의 element 에는 negative value 도 있는데 이 프로젝트에서는 W 의 element 중 최소값을 0으로, 최대값을 1로 한 후 255를 곱하여 linear 하게 확장시키는 방법을 선택하였다. 물론 vector 를 이루는 모든 단위벡터들이 서로 linear 하지 않을 것이기 때문에 한계점이 존재하므로 이 부분에 대해서는 추가적인 개선이 필요할 것이다.
  
-마지막으로 W 의 data type 은 float 이기 때문에 image 로 출력하기 위해 integer type 으로 바꾸어 imshow 를 하였다. <br/><br/>
+  마지막으로 W 의 data type 은 float 이기 때문에 image 로 출력하기 위해 integer type 으로 바꾸어 imshow 를 하였다. <br/><br/>
 
 
 #### Code description ####
