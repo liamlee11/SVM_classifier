@@ -115,7 +115,7 @@ Regularization strength : 0.000005 <br/>
 Iteration : 10000 <br/>
 Step size(Learning rate) : 0.00000001 <br/><br/>
 
-이번 project 에서 hyperparameter 에 대한 cross-validation 과정과 gradient check 과정은 생략하였다. 하지만 각 hyperparameter 에 대해 다음과 같은 현상을 관찰 할 수 있었다.
+hyperparameter 에 대한 cross-validation 과정과 gradient check 과정은 생략하였다. 하지만 각 hyperparameter 에 대해 다음과 같은 현상을 관찰 할 수 있다.
 
 Regularization strength : lamda 값이 크면 계산되는 loss 가 너무 커서 매 update 시에 제대로된 optimization 이 불가능하였다. 따라서 충분히 작은 값 (lamda < 0.00001) 을 통해 이 문제를 해결하였다.
 
