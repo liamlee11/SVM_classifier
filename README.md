@@ -7,7 +7,7 @@
 
 ## Summary
 
-#### SVM Classifier Structure ####
+### SVM Classifier Structure ###
 
 ![img1](/img1.png)
 <br/><br/>
