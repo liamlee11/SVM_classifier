@@ -24,9 +24,7 @@
 
 - Loss function
 
-  SVM 을 loss function 으로 이용하여 loss 를 계산한다. 여기서 사용될 multiclass SVM function 은 Structured SVM 으로 자세한 공식은 [Weston and Watkins 1999 (pdf)] 에서 확인 할 수 있다. Hyperparameter 인 delta 값은 1.0 으로 설정한다. <br/><br/>
-
-[Weston and Watkins 1999 (pdf)](https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es1999-461.pdf)
+  SVM 을 loss function 으로 이용하여 loss 를 계산한다. 여기서 사용될 multiclass SVM function 은 Structured SVM 으로 자세한 공식은 [Weston and Watkins 1999 (pdf)](https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es1999-461.pdf) 에서 확인 할 수 있다. Hyperparameter 인 delta 값은 1.0 으로 설정한다. <br/><br/>
 
 - Regularization
 
