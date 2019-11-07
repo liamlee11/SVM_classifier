@@ -71,11 +71,11 @@
 
 - Gradient Descent
 
-Hyperparameter 인 iteration 과 step size(learning rate) 값을 설정한 후 optimization 을 위한 gradient descent 를 수행한다. While 문에서 매 iteration 마다 loss 와 dW 를 return 받고, 현재 W 에 의한 test data 의 prediction 을 수행한 후 accuracy 를 계산한다. 매 100회의 iteration 마다 결과를 프린트한 후, W 를 update 시킨다. 추가적으로, graph visualization 을 위해 결과값을 추가적인 리스트에 저장한다.
+  Hyperparameter 인 iteration 과 step size(learning rate) 값을 설정한 후 optimization 을 위한 gradient descent 를 수행한다. While 문에서 매 iteration 마다 loss 와 dW 를 return 받고, 현재 W 에 의한 test data 의 prediction 을 수행한 후 accuracy 를 계산한다. 매 100회의 iteration 마다 결과를 프린트한 후, W 를 update 시킨다. 추가적으로, graph visualization 을 위해 결과값을 추가적인 리스트에 저장한다.
 
 - Mini-batch Gradient Descent(Stochastic Gradient Descent)
 
-Full data 에 대해 optimization 을 계속 한다면 비효율적이고 overfitting 이 되어 generalization 이 잘 안되는 문제점이 발생 할 수 있다. 따라서 전체 train data 에서 256 개를 random sampling 하여 optimization 을 수행하는 mini-batch gradient descent 과정을 추가하였다. Sampling number 는 학습시키는 장비에 따라 달라질 수 있는데 보통 2의 지수로 하여 자신의 GPU의 메모리 성능에 맞게 설정해주면 된다(이번 프로젝트에서는 GPU acceleration 을 적용하지 않았기 때문에 CPU에 맞게 설정해주어야 하고 사용 CPU 가 쿼드코어이기 때문에 2^4=16 개의 sampling number 을 설정해야 하는 것으로 보인다. 하지만 수행 결과 2^8 개의 sampling number 을 설정하여도 optimization 속도에 크게 무리가 없었으므로 256 이라는 값을 사용하였다). <br/><br/>
+  Full data 에 대해 optimization 을 계속 한다면 비효율적이고 overfitting 이 되어 generalization 이 잘 안되는 문제점이 발생 할 수 있다. 따라서 전체 train data 에서 256 개를 random sampling 하여 optimization 을 수행하는 mini-batch gradient descent 과정을 추가하였다. Sampling number 는 학습시키는 장비에 따라 달라질 수 있는데 보통 2의 지수로 하여 자신의 GPU의 메모리 성능에 맞게 설정해주면 된다(이번 프로젝트에서는 GPU acceleration 을 적용하지 않았기 때문에 CPU에 맞게 설정해주어야 하고 사용 CPU 가 쿼드코어이기 때문에 2^4=16 개의 sampling number 을 설정해야 하는 것으로 보인다. 하지만 수행 결과 2^8 개의 sampling number 을 설정하여도 optimization 속도에 크게 무리가 없었으므로 256 이라는 값을 사용하였다). <br/><br/>
 
 ***Visualization graph***
 
@@ -100,11 +100,11 @@ Parameter W 를 visualization 하기 위해,
 
 - SVM_Classifier.py
 
-이 함수에서는 반복문을 줄임으로써 더 간결하고 빠른 실행을 위해 half-vectorized 방식을 선택하였다. SVM loss function and regularization 의 margins 를 계산하는 과정에서 이를 위한 코드를 볼 수 있다. Scores 로 주어진 행렬에 대해 매 행과 열을 도는 대신 scores 의 각 클래스에 해당하는 점수들만 append(newaxis) 시켜서 scores 에 빼준것을 확인 할 수 있다.
+  이 함수에서는 반복문을 줄임으로써 더 간결하고 빠른 실행을 위해 half-vectorized 방식을 선택하였다. SVM loss function and regularization 의 margins 를 계산하는 과정에서 이를 위한 코드를 볼 수 있다. Scores 로 주어진 행렬에 대해 매 행과 열을 도는 대신 scores 의 각 클래스에 해당하는 점수들만 append(newaxis) 시켜서 scores 에 빼준것을 확인 할 수 있다.
 
-바로 그 다음 코드는 자기 클래스를 뺀 경우에 해당하는 element 들을 0 으로 만드는 과정이다. 다음으로 Calculate dW 에서 dSVM / dscores 으로 볼 수 있는 mask 변수를 기용한 후 dscore / dW 로 곱하여(여기서는 dscores 와 같다.) dW를 계산하는 과정을 확인 할 수 있다. mask 변수를 자세히 보면 맞는 클래스에 대해서는 큰 음수의 값을, 나머지 0이 아닌 element 들에 대해서는 모두 1의 값을 가지고 있고, calculate dW 의 공식 두개와 완벽하게 일치함을 확인 할 수 있다.
+  바로 그 다음 코드는 자기 클래스를 뺀 경우에 해당하는 element 들을 0 으로 만드는 과정이다. 다음으로 Calculate dW 에서 dSVM / dscores 으로 볼 수 있는 mask 변수를 기용한 후 dscore / dW 로 곱하여(여기서는 dscores 와 같다.) dW를 계산하는 과정을 확인 할 수 있다. mask 변수를 자세히 보면 맞는 클래스에 대해서는 큰 음수의 값을, 나머지 0이 아닌 element 들에 대해서는 모두 1의 값을 가지고 있고, calculate dW 의 공식 두개와 완벽하게 일치함을 확인 할 수 있다.
 
-마지막으로 regularization term 의 gradient 를 추가하기 위해 lamda*W*W 을 미분한 식인 2 * lamda * W 를 더해주었다. <br/><br/>
+  마지막으로 regularization term 의 gradient 를 추가하기 위해 lamda*W*W 을 미분한 식인 2 * lamda * W 를 더해주었다. <br/><br/>
 
 #### Result ####
 
