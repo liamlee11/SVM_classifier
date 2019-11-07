@@ -94,7 +94,7 @@ Parameter W 를 visualization 하기 위해,
   마지막으로 W 의 data type 은 float 이기 때문에 image 로 출력하기 위해 integer type 으로 바꾸어 imshow 를 하였다. <br/><br/>
 
 
-#### Code description ####
+### Code description ###
 
 - SVM_Classifier.py
 
@@ -104,7 +104,7 @@ Parameter W 를 visualization 하기 위해,
 
   마지막으로 regularization term 의 gradient 를 추가하기 위해 lamda*W*W 을 미분한 식인 2 * lamda * W 를 더해주었다. <br/><br/>
 
-#### Result ####
+### Result ###
 
 - *Hyperparameter* <br/>
 Delta : 1.0 <br/>
