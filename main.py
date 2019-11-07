@@ -1,8 +1,6 @@
 
 ## -------------------------------------------------- ##
-# Project2 : Implementation of SVM Classifier          #
-# <Medical Artificial Intelligence, Spring, 2018>      #
-# 2013250622 JunJae LEE                                #
+# Project name : Implementation of SVM Classifier      #
 ## -------------------------------------------------- ##
 
 import numpy as np
