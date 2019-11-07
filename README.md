@@ -73,7 +73,10 @@
 
 - Mini-batch Gradient Descent(Stochastic Gradient Descent)
 
-  Full data 에 대해 optimization 을 계속 한다면 비효율적이고 overfitting 이 되어 generalization 이 잘 안되는 문제점이 발생 할 수 있다. 따라서 전체 train data 에서 256 개를 random sampling 하여 optimization 을 수행하는 mini-batch gradient descent 과정을 추가하였다. Sampling number 는 학습시키는 장비에 따라 달라질 수 있는데 보통 2의 지수로 하여 자신의 GPU의 메모리 성능에 맞게 설정해주면 된다(이번 프로젝트에서는 GPU acceleration 을 적용하지 않았기 때문에 CPU에 맞게 설정해주어야 하고 사용 CPU 가 쿼드코어이기 때문에 2^4=16 개의 sampling number 을 설정해야 하는 것으로 보인다. 하지만 수행 결과 2^8 개의 sampling number 을 설정하여도 optimization 속도에 크게 무리가 없었으므로 256 이라는 값을 사용하였다). <br/><br/>
+  Full data 에 대해 optimization 을 계속 한다면 비효율적이고 overfitting 이 되어 generalization 이 잘 안되는 문제점이 발생 할 수 있다. 따라서 전체 train data 에서 256 개를 random sampling 하여 optimization 을 수행하는 mini-batch gradient descent 과정을 추가하였다. Sampling number 는 학습시키는 장비에 따라 달라질 수 있는데 보통 2의 지수로 하여 자신의 GPU의 메모리 성능에 맞게 설정해주면 된다(이번 프로젝트에서는 GPU acceleration 을 적용하지 않았기 때문에 CPU에 맞게 설정해주어야 하고 사용 CPU 가 쿼드코어이기 때문에 2^4=16 개의 sampling number 을 설정해야 하는 것으로 보인다. 하지만 수행 결과 2^8 개의 sampling number 을 설정하여도 optimization 속도에 크게 무리가 없었으므로 256 이라는 값을 사용하였다).
+
+  **(Stochastic Gradient Descent 개념을 혼동하여 위 과정에는 오류가 있다. 추후 수정 예정.)**
+<br/><br/>
 
 ***Visualization graph***
 
