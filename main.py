@@ -1,7 +1,7 @@
 
-## -------------------------------------------------- ##
-# Project name : Implementation of SVM Classifier      #
-## -------------------------------------------------- ##
+
+# Project name : Implementation of SVM Classifier
+
 
 import numpy as np
 import matplotlib.pyplot as plt
