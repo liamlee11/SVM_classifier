@@ -108,7 +108,7 @@ Parameter W 를 visualization 하기 위해,
 
 #### Result ####
 
-- Hyperparameter <br/>
+- *Hyperparameter* <br/>
 Delta : 1.0 <br/>
 Regularization strength : 0.000005 <br/>
 Iteration : 10000 <br/>
@@ -122,7 +122,7 @@ Iteration : 아래의 graph 에서도 확인 할 수도 있지만 iteration 은 
 
 Step size(Learning rate) : 이 hyperparameter 또한 lamda 값과 마찬가지로 loss 에 굉장히 민감한 영향을 준다는 사실을 확인하였다. Step size 가 너무 크면 overshooting 현상이 일어나 제대로 loss function 의 convex 안으로 들어가지 못해 loss 가 증가하고, 조금만 커도 loss function 의 최저점을 잘 찾지 못하고 위아래로 진동하게 된다. 또, 너무 작은 값을 설정한다면 update 가 매우 느리고 local minimum 으로 빠질 위험이 있다. 따라서 여러 번의 시도로 적절한 값을 설정해 주어야 한다. 여기서 step size 값과, W 의 scale 을 낮추기 위해 곱해준 값(0.0001) 과 regularization strength 값이 서로 상충되어 최종 loss 값이 산출된다는 사실을 느낄 수 있었는데, 해당 3개의 값이 균형을 이루지 않고 어느 하나가 너무 크다면 loss 가 예상보다 훨씬 큰 값으로 scaling 되기 때문에 주의하여야 한다. <br/><br/>
 
-- Loss and Accuracy <br/>
+- *Loss and Accuracy* <br/>
 Gradient descent <br/>
 Loss : 4.351582 <br/>
 Accuracy : 0.379900 <br/>
